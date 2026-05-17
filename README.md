@@ -1,5 +1,5 @@
-# bayesian-model-comparison
-Bayesian model comparison for detecting isochores in genomic sequence data using R
+# Isochores Detection Using Bayesian Model Comparison
+
 ## Overview
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
 
