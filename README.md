@@ -148,6 +148,16 @@ The most probable change point is the 71st window.
 
 ![ ](figures/changepoint_prob5.png)
 
+## How to Run
+
+1. Clone or download this repository.
+
+2. Open `Isochores.Rproj` in RStudio.
+
+3. Install the required package:
+
+```r
+install.packages("ggplot2")
 
 
 
