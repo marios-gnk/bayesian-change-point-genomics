@@ -48,7 +48,7 @@ $$
 
 - Model $M_2$: Two Isochores (Change-Point Model)
 
-There exists an unknown change point $t \in \{1,2,\dots,n-1\}$ such that:
+There exists an unknown change point $t \in \\{1,2,\dots,n-1\\}$ such that:
 
 $$
 x_i \sim \text{Binomial}(m, \theta_1), \quad i = 1,\dots,t
