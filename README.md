@@ -90,12 +90,12 @@ For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. 
 ### 1st Dataset
 Here, the most probable structural change point, based on its posterior distribution, is the 80th window.
 
-We observe that from the 81st window onward (shown in red), the number of C and G bases per window fluctuates around lower values, which is also evident from the boxplot (left).
+We notice that from the 81st window onward (shown in red), the number of CG-content per window fluctuates around lower values, which is also evident from the boxplot (left).
 
 ### 2nd Dataset
-At first glance at the scatter plot of C/G content per window, we observe a sharp and persistent decrease in the corresponding content from a certain point onward, which is consistent with the hypothesis that the data originate from two different isochores. The most probable structural change point is the 37th window.
+At first glance, we notice a sharp and persistent decrease in the CG-content per window from a certain point onward, which is consistent with the hypothesis that the data originate from two different isochores. The most probable structural change point is the 37th window.
 
-The boxplot below illustrates the range of C/G-content values per window for each isochore. The difference is evident.
+The boxplot below illustrates the range of CG-content values per window for each isochore. The difference is evident.
 
 ### 3rd Dataset
 The third dataset appears to contain a small segment of the chain belonging to an isochore in which the C/G content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
@@ -103,7 +103,7 @@ The third dataset appears to contain a small segment of the chain belonging to a
 Here, the structural change occurs earlier. The most probable structural change point is the 13th window.
 
 ### 4th Dataset
-Here we observe the opposite pattern compared to the previous dataset. The first windows appear to belong to an isochore's region with an increased proportion of C and G bases, whereas in the isochore that follows, this proportion decreases significantly. 
+Here, The first windows appear to belong to an isochore's region with an increased proportion of C and G bases, whereas in the isochore that follows, this proportion decreases significantly. 
 
 The most probable change point is the 16th window.
 
@@ -112,7 +112,6 @@ In the 5th dataset, the final windows belong to a different isochore. Specifical
 
 The most probable change point is the 71st window.
 
-Below we observe the difference in the range of values of C/G content per window between the two isochores.
 
 
 
