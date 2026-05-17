@@ -1,4 +1,4 @@
-# Isochores Detection Using Bayesian Model Comparison
+# Bayesian Model Comparison for Isochore Detection
 
 ## Overview
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
@@ -12,116 +12,111 @@ The data folder contains 5 datasets, each consisting of 100 consecutive observat
 The goal is to determine whether each dataset originates from one or two different isochores. 
 
 ## Datasets
-Each dataset is a vector containing the counts of C or G bases in consecutive windows, each of which consists of 5,000 bases.
-
-# 📊 Bayesian Model Comparison for Isochore Detection
-
-## 📌 Problem Description
-
-Each dataset consists of \( n = 100 \) observations
-
-\[
-x = (x_i)_{i=1}^n
-\]
-
-where each observation \( x_i \) represents the number of nucleotides of type **C or G** within genomic windows of length
-
-\[
-m = 5000 \text{ bases}
-\]
+Each dataset is a sequence $x = (x_i)_{i=1}^n$ of $n = 100$ observations, where each observation $x_i$ represents the number of nucleotides of type **C or G** within a window of length $m = 5000$ bases.
 
 The observations are sequential and correspond to consecutive genomic windows along a DNA segment.
 
+## Methodology
 The goal is to determine whether each dataset originates from:
 
 - a **single isochore (homogeneous genomic region)**, or  
-- **two different isochores (a structural change in GC-content)**.
+- **two different isochores (a structural change in CG-content)**.
 
----
-
-## 🧬 Statistical Modeling
+### Statistical Modeling
 
 We assume that each base behaves independently, and that the probability of observing a C or G base is constant within a given region.
 
 Thus, each observation follows a Binomial model:
 
-\[
+$$
 x_i \mid \theta \sim \text{Binomial}(m, \theta), \quad i = 1,2,\dots,n
-\]
+$$
 
 where:
-- \( m = 5000 \)
-- \( \theta \) is the GC-content probability.
+- $m = 5000$
+- $\theta$ is the probability of observing a C or G base inside the window.
 
----
+### Competing Models
 
-## 📈 Competing Models
-
-### 🟦 Model \( M_1 \): Single Isochore
+- Model $M_1$: Single Isochore
 
 The entire sequence comes from one homogeneous region:
 
-\[
+$$
 x_i \sim \text{Binomial}(m, \theta), \quad \forall i = 1,\dots,n
-\]
+$$
 
----
+- Model $M_2$: Two Isochores (Change-Point Model)
 
-### 🟧 Model \( M_2 \): Two Isochores (Change-Point Model)
+There exists an unknown change point $t \in \{1,2,\dots,n-1\}$ such that:
 
-There exists an unknown change point \( t \in \{1,2,\dots,n-1\} \) such that:
-
-\[
+$$
 x_i \sim \text{Binomial}(m, \theta_1), \quad i = 1,\dots,t
-\]
+$$
 
-\[
+$$
 x_i \sim \text{Binomial}(m, \theta_2), \quad i = t+1,\dots,n
-\]
+$$
 
-This represents a structural shift in GC-content along the sequence.
+This represents a structural shift in CG-content along the sequence.
 
----
+### Bayesian Framework
 
-## 🎯 Bayesian Framework
-
-To compare the two models, we use a Bayesian approach.
-
-### Priors:
+To compare the two models, we use the Bayesian approach.
 
 - Model probabilities:
-\[
-P(M_1) = P(M_2) = \frac{1}{2}
-\]
+$$P(M_1) = P(M_2) = \frac{1}{2}$$
 
 - Parameter priors:
-\[
-\theta \sim \mathcal{U}(0,1), \quad
+$$\theta \sim \mathcal{U}(0,1), \quad
 \theta_1 \sim \mathcal{U}(0,1), \quad
-\theta_2 \sim \mathcal{U}(0,1)
-\]
+\theta_2 \sim \mathcal{U}(0,1)$$
 
 - Change-point prior:
-\[
-t \sim \mathcal{U}\{1,2,\dots,n-1\}
-\]
+$$t \sim \mathcal{U}\\{1,2,\dots,n-1\\}$$
 
----
-
-## 🧪 Objective
+### Objective
 
 For each dataset, we compute and compare the posterior probabilities of:
 
-- \( M_1 \): single isochore model  
-- \( M_2 \): two-isochore change-point model  
+- $M_1$: single isochore model  
+- $M_2$: two-isochore change-point model  
 
-to determine whether a structural change in GC-content is supported by the data.
+to determine whether a structural change in CG-content is supported by the data.
 
----
+## Results
+For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. Thus, it is almost certain that every single dataset originates from two different isochores.
 
-## 📌 Output
+### 1st Dataset
+Here, the most probable structural change point, based on its posterior distribution, is the 80th window.
 
-For each dataset, the analysis determines whether:
+We observe that from the 81st window onward (shown in red), the number of C and G bases per window fluctuates around lower values, which is also evident from the boxplot (left).
 
-- The sequence is best explained by a **single isochore**, or  
-- There is evidence of a **change point indicating two isochores**. 
+### 2nd Dataset
+At first glance at the scatter plot of C/G content per window, we observe a sharp and persistent decrease in the corresponding content from a certain point onward, which is consistent with the hypothesis that the data originate from two different isochores. The most probable structural change point is the 37th window.
+
+The boxplot below illustrates the range of C/G-content values per window for each isochore. The difference is evident.
+
+### 3rd Dataset
+The third dataset appears to contain a small segment of the chain belonging to an isochore in which the C/G content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
+
+Here, the structural change occurs earlier. The most probable structural change point is the 13th window.
+
+### 4th Dataset
+Here we observe the opposite pattern compared to the previous dataset. The first windows appear to belong to an isochore's region with an increased proportion of C and G bases, whereas in the isochore that follows, this proportion decreases significantly. 
+
+The most probable change point is the 16th window.
+
+### 5th Dataset
+In the 5th dataset, the final windows belong to a different isochore. Specifically, from the 72nd window onward, we observe a sharp increase in the number of C/G bases per window.
+
+The most probable change point is the 71st window.
+
+Below we observe the difference in the range of values of C/G content per window between the two isochores.
+
+
+
+
+
+
+
