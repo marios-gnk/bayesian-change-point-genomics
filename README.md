@@ -1,4 +1,4 @@
-# Bayesian Model Comparison for Isochore Detection
+# Bayesian Model Comparison for Isochore Detection (R)
 
 ## Overview
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
@@ -91,12 +91,11 @@ For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. 
 
 ![ ](figures/scatter1.png)
 
-Here, the most probable structural change point, based on its posterior distribution, is the 80th window.
+Based on the posterior distribution, the most probable structural change point occurs at the 80th window.
 
 ![ ](figures/changepoint_prob_1.png)
 
-We notice that from the 81st window onward (shown in red), the number of CG-content per window fluctuates around lower values, which is also evident from the 
-boxplot (left).
+From the 81st window onward (highlighted in red), the CG-content per window fluctuates around lower values. This pattern is also reflected in the corresponding boxplot shown below.
 
 ![ ](figures/boxplot1.png)
 
@@ -104,11 +103,11 @@ boxplot (left).
 
 ![ ](figures/scatter2.png)
 
-At first glance, we notice a sharp and persistent decrease in the CG-content per window from a certain point onward, which is consistent with the hypothesis that the data originate from two different isochores. The most probable structural change point is the 37th window.
+At first glance, the dataset exhibits a sharp and persistent decrease in CG-content per window beyond a certain point, supporting the hypothesis that the sequence originates from two distinct isochores. The most probable structural change point occurs at the 37th window.
 
 ![ ](figures/changepoint_prob2.png)
 
-The boxplot below illustrates the range of CG-content values per window for each isochore. The difference is evident.
+The boxplot below illustrates the distribution of CG-content values per window for each isochore, highlighting the difference between the two regions.
 
 ![ ](figures/boxplot2.png)
 
@@ -116,11 +115,11 @@ The boxplot below illustrates the range of CG-content values per window for each
 
 ![ ](figures/scatter3.png)
 
-The third dataset appears to contain a small segment of the chain belonging to an isochore in which the C/G content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
+The third dataset appears to contain an initial segment belonging to an isochore in which the C/G content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
 
 ![ ](figures/boxplot3.png)
 
-Here, the structural change occurs earlier. The most probable structural change point is the 13th window.
+In this case, the structural change occurs relatively early in the sequence. The most probable structural change point is the 13th window.
 
 ![ ](figures/changepoint_prob3.png)
 
@@ -128,11 +127,11 @@ Here, the structural change occurs earlier. The most probable structural change 
 
 ![ ](figures/scatter4.png)
 
-Here, The first windows appear to belong to an isochore's region with an increased proportion of C and G bases, whereas in the isochore that follows, this proportion decreases significantly. 
+In this dataset, the initial windows appear to belong to an isochore characterized by an increased proportion of C and G bases, whereas the subsequent isochore exhibits a substantially lower proportion.
 
 ![ ](figures/boxplot4.png)
 
-The most probable change point is the 16th window.
+The most probable structural change point occurs at the 16th window.
 
 ![ ](figures/changepoint_prob4.png)
 
@@ -140,14 +139,13 @@ The most probable change point is the 16th window.
 
 ![ ](figures/scatter5.png)
 
-In the 5th dataset, the final windows belong to a different isochore. Specifically, from the 72nd window onward, we observe a sharp increase in the number of C/G bases per window.
+In the fifth dataset, the final windows appear to belong to a different isochore. More specifically, from the 72nd window onward, a sharp increase in the number of C/G bases per window is observed.
 
 ![ ](figures/boxplot5.png)
 
-The most probable change point is the 71st window.
+The most probable structural change point occurs at the 71st window.
 
 ![ ](figures/changepoint_prob5.png)
-
 ## How to Run
 
 1. Clone or download this repository.
@@ -158,6 +156,23 @@ The most probable change point is the 71st window.
 
 ```r
 install.packages("ggplot2")
+```
+4. Run the script:
+
+```r
+source("bayesian_model_comparison.R") 
+```
+
+## Notes
+
+- This README also serves as a concise project report.
+- A more detailed report in Greek is available in `report.pdf`.
+
+## Author
+
+Marios Giannakopoulos  
+Department of Mathematics  
+National and Kapodistrian University of Athens
 
 
 
