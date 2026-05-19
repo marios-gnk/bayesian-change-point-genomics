@@ -1,6 +1,6 @@
-# Bayesian Model Comparison for Isochore Detection (R)
+# 🧬 Bayesian Model Comparison for Isochore Detection (R)
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
-## Overview
+## 📖 Overview
 An organism’s genetic information is encoded in its cells in DNA molecules, organized into structures called chromosomes. DNA molecules are polymers that consist of a long chain of monomers, which are called nucleotides. Each nucleotide contains a nitrogenous base. There are four types of bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
 
 Isochores are regions (segments of the chain) of a specific chromosome in which the percentage of bases of type C or G is approximately constant.
@@ -9,12 +9,12 @@ The data folder contains 5 datasets, each consisting of 100 consecutive observat
 
 The goal is to determine whether each dataset originates from one or two different isochores. 
 
-## Datasets
+## 🗂️ Datasets
 Each dataset is a sequence $x = (x_i)_{i=1}^n$ of $n = 100$ observations, where each observation $x_i$ represents the number of nucleotides of type **C or G** within a window of length $m = 5000$ bases.
 
 The observations are sequential and correspond to consecutive genomic windows along a DNA segment.
 
-## Methodology
+## 📃 Methodology
 The goal is to determine whether each dataset originates from:
 
 - a **single isochore (homogeneous genomic region)**, or  
@@ -82,7 +82,7 @@ For each dataset, we compute and compare the posterior probabilities of:
 
 to determine whether a structural change in CG-content is supported by the data.
 
-## Results
+## 📈 Results
 For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. Thus, it is almost certain that every single dataset originates from two different isochores.
 
 ### 1st Dataset
@@ -144,7 +144,7 @@ In the fifth dataset, the final windows appear to belong to a different isochore
 The most probable structural change point occurs at the 71st window.
 
 ![ ](figures/changepoint_prob5.png)
-## How to Run
+## ▶️ How to Run
 
 1. Clone or download this repository.
 
@@ -161,12 +161,12 @@ install.packages("ggplot2")
 source("bayesian_model_comparison.R") 
 ```
 
-## Notes
+## ✍️ Notes
 
 - This README also serves as a concise project report.
 - A more detailed report in Greek is available in `report.pdf`.
 
-## Author
+## 👨‍💻 Author
 
 Marios Giannakopoulos  
 Department of Mathematics  
