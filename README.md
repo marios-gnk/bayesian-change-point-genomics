@@ -1,6 +1,6 @@
-# 🧬 Bayesian Model Comparison for Isochore Detection (R)
+# Bayesian Model Comparison for Isochore Detection (R)
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
-## 📖 Overview
+## 🧬 Overview
 An organism’s genetic information is encoded in its cells in DNA molecules, organized into structures called chromosomes. DNA molecules are polymers that consist of a long chain of monomers, which are called nucleotides. Each nucleotide contains a nitrogenous base. There are four types of bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
 
 Isochores are regions (segments of the chain) of a specific chromosome in which the percentage of bases of type C or G is approximately constant.
