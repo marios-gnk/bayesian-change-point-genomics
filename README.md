@@ -144,6 +144,12 @@ In the fifth dataset, the final windows appear to belong to a different isochore
 The most probable structural change point occurs at the 71st window.
 
 ![ ](figures/changepoint_prob5.png)
+
+## ⚙️ Tools and Technologies Used
+- R
+- RStudio
+- ggplot2
+
 ## ▶️ How to Run
 
 1. Clone or download this repository.
