@@ -17,8 +17,8 @@ The observations are sequential and correspond to consecutive genomic windows al
 ## 📃 Methodology
 The goal is to determine whether each dataset originates from:
 
-- a **single isochore (homogeneous genomic region)**, or  
-- **two different isochores (a structural change in CG-content)**.
+- a single isochore (homogeneous genomic region), or  
+- two different isochores (a structural change in CG-content).
 
 ### Statistical Modeling
 
