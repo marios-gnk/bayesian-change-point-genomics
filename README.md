@@ -5,7 +5,7 @@ An organism’s genetic information is encoded in its cells in DNA molecules, or
 
 Isochores are regions (segments of the chain) of a specific chromosome in which the percentage of bases of type C or G is approximately constant.
 
-The data folder contains five datasets, each consisting of 100 consecutive observations concerning the number of bases of type C or G in windows composed of 5000 bases each. 
+The data folder contains 5 datasets, each consisting of 100 consecutive observations concerning the number of bases of type C or G in windows composed of 5000 bases each. 
 
 The goal is to determine whether each dataset originates from one or two different isochores. 
 
