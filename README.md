@@ -174,8 +174,10 @@ source("bayesian_model_comparison.R")
 
 ## 👨‍💻 Author
 
-Marios Giannakopoulos  
+**Marios Giannakopoulos**
+
 Department of Mathematics  
+
 National and Kapodistrian University of Athens
 
 
