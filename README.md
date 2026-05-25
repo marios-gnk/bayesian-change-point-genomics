@@ -3,14 +3,14 @@ This repository contains an academic project completed as part of the course **B
 ## 🧬 Overview
 An organism’s genetic information is encoded in its cells in DNA molecules, organized into structures called chromosomes. DNA molecules are polymers that consist of a long chain of monomers, which are called nucleotides. Each nucleotide contains a nitrogenous base. There are four types of bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
 
-Isochores are regions (segments of the chain) of a specific chromosome in which the percentage of bases of type C or G is approximately constant.
+Isochores are regions (segments of the chain) of a specific chromosome in which the percentage of bases of type G or C is approximately constant.
 
-The data folder contains 5 datasets, each consisting of 100 consecutive observations concerning the number of bases of type C or G in windows composed of 5000 bases each. 
+The data folder contains 5 datasets, each consisting of 100 consecutive observations concerning the number of bases of type G or C in windows composed of 5000 bases each. 
 
 The goal is to determine whether each dataset originates from one or two different isochores. 
 
 ## 🗂️ Datasets
-Each dataset is a sequence $x = (x_i)_{i=1}^n$ of $n = 100$ observations, where each observation $x_i$ represents the number of nucleotides of type **C or G** within a window of length $m = 5000$ bases.
+Each dataset is a sequence $x = (x_i)_{i=1}^n$ of $n = 100$ observations, where each observation $x_i$ represents the number of nucleotides of type **G or C** within a window of length $m = 5000$ bases.
 
 The observations are sequential and correspond to consecutive genomic windows along a DNA segment.
 
@@ -18,11 +18,11 @@ The observations are sequential and correspond to consecutive genomic windows al
 The goal is to determine whether each dataset originates from:
 
 - a single isochore (homogeneous genomic region), or  
-- two different isochores (a structural change in CG-content).
+- two different isochores (a structural change in GC-content).
 
 ### Statistical Modeling
 
-We assume that each base behaves independently, and that the probability of observing a C or G base is constant within a given region.
+We assume that each base behaves independently, and that the probability of observing a G or C base is constant within a given region.
 
 Thus, each observation follows a Binomial model:
 
@@ -32,7 +32,7 @@ $$
 
 where:
 - $m = 5000$
-- $\theta$ is the probability of observing a C or G base inside the window.
+- $\theta$ is the probability that a randomly selected nucleotide in the window is either G or C.
 
 ### Competing Models
 
@@ -56,7 +56,7 @@ $$
 x_i \sim \text{Binomial}(m, \theta_2), \quad i = t+1,\dots,n
 $$
 
-This represents a structural shift in CG-content along the sequence.
+This represents a structural shift in GC-content along the sequence.
 
 ### Bayesian Inference
 
@@ -80,10 +80,10 @@ For each dataset, we compute and compare the posterior probabilities of:
 - $M_1$: single isochore model  
 - $M_2$: two-isochore change-point model  
 
-to determine whether a structural change in CG-content is supported by the data.
+to determine whether a structural change in GC-content is supported by the data.
 
 ## 📈 Results
-For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. Thus, it is almost certain that every single dataset originates from two different isochores.
+For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. Thus, there is strong evidence that every single dataset originates from two different isochores.
 
 ### 1st Dataset
 
@@ -93,7 +93,7 @@ Based on the posterior distribution, the most probable structural change point o
 
 ![ ](figures/changepoint_prob_1.png)
 
-From the 81st window onward (highlighted in red), the CG-content per window fluctuates around lower values. This pattern is also reflected in the corresponding boxplot shown below.
+From the 81st window onward (highlighted in red), the GC-content per window fluctuates around lower values. This pattern is also reflected in the corresponding boxplot shown below.
 
 ![ ](figures/boxplot1.png)
 
@@ -101,11 +101,11 @@ From the 81st window onward (highlighted in red), the CG-content per window fluc
 
 ![ ](figures/scatter2.png)
 
-At first glance, the dataset exhibits a sharp and persistent decrease in CG-content per window beyond a certain point, supporting the hypothesis that the sequence originates from two distinct isochores. The most probable structural change point occurs at the 37th window.
+At first glance, the dataset exhibits a sharp and persistent decrease in GC-content per window beyond a certain point, supporting the hypothesis that the sequence originates from two distinct isochores. The most probable structural change point occurs at the 37th window.
 
 ![ ](figures/changepoint_prob2.png)
 
-The boxplot below illustrates the distribution of CG-content values per window for each isochore, highlighting the difference between the two regions.
+The boxplot below illustrates the distribution of GC-content values per window for each isochore, highlighting the difference between the two regions.
 
 ![ ](figures/boxplot2.png)
 
@@ -113,7 +113,7 @@ The boxplot below illustrates the distribution of CG-content values per window f
 
 ![ ](figures/scatter3.png)
 
-The third dataset appears to contain an initial segment belonging to an isochore in which the C/G content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
+The third dataset appears to contain an initial segment belonging to an isochore in which the GC-content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
 
 ![ ](figures/boxplot3.png)
 
@@ -125,7 +125,7 @@ In this case, the structural change occurs relatively early in the sequence. The
 
 ![ ](figures/scatter4.png)
 
-In this dataset, the initial windows appear to belong to an isochore characterized by an increased proportion of C and G bases, whereas the subsequent isochore exhibits a substantially lower proportion.
+In this dataset, the initial windows appear to belong to an isochore characterized by an increased proportion of G and C bases, whereas the subsequent isochore exhibits a substantially lower proportion.
 
 ![ ](figures/boxplot4.png)
 
@@ -137,7 +137,7 @@ The most probable structural change point occurs at the 16th window.
 
 ![ ](figures/scatter5.png)
 
-In the fifth dataset, the final windows appear to belong to a different isochore. More specifically, from the 72nd window onward, a sharp increase in the number of C/G bases per window is observed.
+In the fifth dataset, the final windows appear to belong to a different isochore. More specifically, from the 72nd window onward, a sharp increase in the number of G and C bases per window is observed.
 
 ![ ](figures/boxplot5.png)
 
