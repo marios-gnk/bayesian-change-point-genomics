@@ -1,4 +1,4 @@
-# Bayesian Model Comparison for Isochore Detection (R)
+# Bayesian Change-Point Detection in Genomic Sequences (R)
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
 ## 🧬 Overview
 An organism’s genetic information is encoded in its cells in DNA molecules, organized into structures called chromosomes. DNA molecules are polymers that consist of a long chain of monomers, which are called nucleotides. Each nucleotide contains a nitrogenous base. There are four types of bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
@@ -58,7 +58,7 @@ $$
 
 This represents a structural shift in CG-content along the sequence.
 
-### Bayesian Framework
+### Bayesian Inference
 
 To compare the two models, we use the Bayesian approach.
 
