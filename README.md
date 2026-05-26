@@ -2,8 +2,6 @@
 
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
 
----
-
 ## 🧬 Overview
 
 An organism’s genetic information is encoded in DNA molecules organized into chromosomes. DNA sequences consist of four nucleotide bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
