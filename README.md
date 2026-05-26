@@ -10,7 +10,7 @@ The data folder contains 5 datasets, each consisting of 100 consecutive observat
 The goal is to determine whether each dataset originates from one or two different isochores. 
 
 ## 🗂️ Datasets
-Each dataset is a sequence $x = (x_i)_{i=1}^n$ of $n = 100$ observations, where each observation $x_i$ represents the number of nucleotides of type **G or C** within a window of length $m = 5000$ bases.
+Each dataset consists of a sequence $x = (x_1,x_2,\dots,x_n)$, where each observation $x_i$ represents the number of **G or C** bases within a genomic window of length $m=5000$ bases, over $n=100$ consecutive windows. 
 
 The observations are sequential and correspond to consecutive genomic windows along a DNA segment.
 
