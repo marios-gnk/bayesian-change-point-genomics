@@ -1,28 +1,38 @@
-# Bayesian Change-Point Detection in Genomic Sequences (R)
+# Bayesian Change-Point Detection in Genomic GC-Content Using R
+
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
+
+---
+
 ## 🧬 Overview
-An organism’s genetic information is encoded in its cells in DNA molecules, organized into structures called chromosomes. DNA molecules are polymers that consist of a long chain of monomers, which are called nucleotides. Each nucleotide contains a nitrogenous base. There are four types of bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
 
-Isochores are regions (segments of the chain) of a specific chromosome in which the percentage of bases of type G or C is approximately constant.
+An organism’s genetic information is encoded in DNA molecules organized into chromosomes. DNA sequences consist of four nucleotide bases: adenine (A), guanine (G), cytosine (C), and thymine (T).
 
-The data folder contains 5 datasets, each consisting of 100 consecutive observations concerning the number of bases of type G or C in windows composed of 5000 bases each. 
+GC-content refers to the proportion of nucleotides in a DNA sequence that are either guanine (G) or cytosine (C).
 
-The goal is to determine whether each dataset originates from one or two different isochores. 
+Isochores are regions of a chromosome in which GC-content is approximately constant.
+
+The `data` folder contains 5 datasets, each consisting of 100 consecutive observations of G/C counts across genomic windows of length 5000.
+
+The goal is to determine whether each dataset originates from:
+- a single homogeneous isochore, or  
+- two distinct isochores separated by a structural change in GC-content.
+
+---
 
 ## 🗂️ Datasets
-Each dataset consists of a sequence $x = (x_1,x_2,\dots,x_n)$, where each observation $x_i$ represents the number of **G or C** bases within a genomic window of length $m=5000$ bases, over $n=100$ consecutive windows. 
+
+Each dataset consists of a sequence $x = (x_1, x_2, \dots, x_n)$, where each observation $x_i$ represents the number of G or C bases within a genomic window of length $m = 5000$ bases, over $n = 100$ consecutive windows.
 
 The observations are sequential and correspond to consecutive genomic windows along a DNA segment.
 
-## 📃 Methodology
-The goal is to determine whether each dataset originates from:
+---
 
-- a single isochore (homogeneous genomic region), or  
-- two different isochores (a structural change in GC-content).
+## 📃 Methodology
 
 ### Statistical Modeling
 
-We assume that each base behaves independently, and that the probability of observing a G or C base is constant within a given region.
+We assume that nucleotides behave independently and that the probability of observing a G or C base remains constant within a given genomic region.
 
 Thus, each observation follows a Binomial model:
 
@@ -32,19 +42,19 @@ $$
 
 where:
 - $m = 5000$
-- $\theta$ is the probability that a randomly selected nucleotide in the window is either G or C.
+- $\theta$ is the probability that a randomly selected nucleotide within the window is either G or C.
 
 ### Competing Models
 
-- Model $M_1$: Single Isochore
+#### Model $M_1$: Single Isochore
 
-The entire sequence comes from one homogeneous region:
+The entire sequence originates from one homogeneous region:
 
 $$
 x_i \sim \text{Binomial}(m, \theta), \quad \forall i = 1,\dots,n
 $$
 
-- Model $M_2$: Two Isochores (Change-Point Model)
+#### Model $M_2$: Two Isochores (Change-Point Model)
 
 There exists an unknown change point $t \in \\{1,2,\dots,n-1\\}$ such that:
 
@@ -60,95 +70,117 @@ This represents a structural shift in GC-content along the sequence.
 
 ### Bayesian Inference
 
-To compare the two models, we use the Bayesian approach.
+To compare the two competing models, we use Bayesian model comparison.
 
-- Model probabilities:
-$$P(M_1) = P(M_2) = \frac{1}{2}$$
+- Model priors:
+
+$$
+P(M_1) = P(M_2) = \frac{1}{2}
+$$
 
 - Parameter priors:
-$$\theta \sim \mathcal{U}(0,1), \quad
-\theta_1 \sim \mathcal{U}(0,1), \quad
-\theta_2 \sim \mathcal{U}(0,1)$$
+
+$$
+\theta, \theta_1, \theta_2 \sim \mathcal{U}(0,1) = \text{Beta}(1,1)
+$$
 
 - Change-point prior:
-$$t \sim \mathcal{U}\\{1,2,\dots,n-1\\}$$
+
+$$
+t \sim \mathcal{U}\\{1,2,\dots,n-1\\}
+$$
+
+Marginal likelihoods are computed analytically using Beta–Binomial conjugacy.
 
 ### Objective
 
 For each dataset, we compute and compare the posterior probabilities of:
-
-- $M_1$: single isochore model  
+- $M_1$: single-isochore model  
 - $M_2$: two-isochore change-point model  
 
 to determine whether a structural change in GC-content is supported by the data.
 
+---
+
 ## 📈 Results
-For every single dataset we obtain $P(M_2 \mid x) = 1$ and $P(M_1 \mid x) = 0$. Thus, there is strong evidence that every single dataset originates from two different isochores.
+
+For all datasets, the posterior probability strongly favors the two-isochore model. The posterior mass concentrates almost entirely on $M_2$, indicating strong evidence of structural changes in GC-content along the sequences.
 
 ### 1st Dataset
 
-![ ](figures/scatter1.png)
+![](figures/dataset1_sequence.png)
 
-Based on the posterior distribution, the most probable structural change point occurs at the 80th window.
+Based on the posterior distribution, the most probable change point occurs at the 80th window.
 
-![ ](figures/changepoint_prob_1.png)
+![](figures/dataset1_changepoint_posterior.png)
 
-From the 81st window onward (highlighted in red), the GC-content per window fluctuates around lower values. This pattern is also reflected in the corresponding boxplot shown below.
+From the 81st window onward (highlighted in red), GC-content fluctuates around lower values. This pattern is also reflected in the corresponding boxplot shown below.
 
-![ ](figures/boxplot1.png)
+![](figures/dataset1_boxplot.png)
 
 ### 2nd Dataset
 
-![ ](figures/scatter2.png)
+![](figures/dataset2_sequence.png)
 
-At first glance, the dataset exhibits a sharp and persistent decrease in GC-content per window beyond a certain point, supporting the hypothesis that the sequence originates from two distinct isochores. The most probable structural change point occurs at the 37th window.
+The dataset exhibits a sharp and persistent decrease in GC-content beyond a specific point, supporting the hypothesis of two distinct isochores. The most probable change point occurs at the 37th window.
 
-![ ](figures/changepoint_prob2.png)
+![](figures/dataset2_changepoint_posterior.png)
 
 The boxplot below illustrates the distribution of GC-content values per window for each isochore, highlighting the difference between the two regions.
 
-![ ](figures/boxplot2.png)
+![](figures/dataset2_boxplot.png)
 
 ### 3rd Dataset
 
-![ ](figures/scatter3.png)
+![](figures/dataset3_sequence.png)
 
-The third dataset appears to contain an initial segment belonging to an isochore in which the GC-content per window fluctuates around lower values, while the subsequent isochore exhibits a noticeable increase in the corresponding content.
+The third dataset appears to contain an initial region in which GC-content fluctuates around lower values, while the subsequent region exhibits a noticeable increase in GC-content.
 
-![ ](figures/boxplot3.png)
+The most probable change point occurs at the 13th window.
 
-In this case, the structural change occurs relatively early in the sequence. The most probable structural change point is the 13th window.
+![](figures/dataset3_changepoint_posterior.png)
 
-![ ](figures/changepoint_prob3.png)
+The corresponding boxplot further illustrates the difference between the two inferred regions.
+
+![](figures/dataset3_boxplot.png)
 
 ### 4th Dataset
 
-![ ](figures/scatter4.png)
+![](figures/dataset4_sequence.png)
 
-In this dataset, the initial windows appear to belong to an isochore characterized by an increased proportion of G and C bases, whereas the subsequent isochore exhibits a substantially lower proportion.
+In this dataset, the initial windows appear to belong to a region characterized by increased GC-content, whereas the subsequent region exhibits substantially lower values.
 
-![ ](figures/boxplot4.png)
+The most probable change point occurs at the 16th window.
 
-The most probable structural change point occurs at the 16th window.
+![](figures/dataset4_changepoint_posterior.png)
 
-![ ](figures/changepoint_prob4.png)
+The boxplot below highlights the contrast between the two inferred regions.
+
+![](figures/dataset4_boxplot.png)
 
 ### 5th Dataset
 
-![ ](figures/scatter5.png)
+![](figures/dataset5_sequence.png)
 
-In the fifth dataset, the final windows appear to belong to a different isochore. More specifically, from the 72nd window onward, a sharp increase in the number of G and C bases per window is observed.
+In the fifth dataset, the final windows appear to belong to a different genomic region. More specifically, from the 72nd window onward, a sharp increase in GC-content is observed.
 
-![ ](figures/boxplot5.png)
+The most probable change point occurs at the 71st window.
 
-The most probable structural change point occurs at the 71st window.
+![](figures/dataset5_changepoint_posterior.png)
 
-![ ](figures/changepoint_prob5.png)
+The boxplot below illustrates the difference between the two inferred regions.
+
+![](figures/dataset5_boxplot.png)
+
+---
 
 ## ⚙️ Tools and Technologies Used
-- R
-- RStudio
-- ggplot2
+
+- R  
+- RStudio  
+- ggplot2  
+
+---
 
 ## ▶️ How to Run
 
@@ -164,13 +196,16 @@ install.packages("ggplot2")
 4. Run the script:
 
 ```r
-source("bayesian_model_comparison.R") 
+source("isochore_changepoint_analysis.R") 
 ```
+
+---
 
 ## ✍️ Notes
 
 - This README also serves as a concise project report.
-- A more detailed report in Greek is available in `report.pdf`.
+
+--- 
 
 ## 👨‍💻 Author
 
@@ -179,8 +214,5 @@ source("bayesian_model_comparison.R")
 Department of Mathematics  
 
 National and Kapodistrian University of Athens
-
-
-
 
 
