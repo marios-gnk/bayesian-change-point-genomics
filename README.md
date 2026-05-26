@@ -102,7 +102,7 @@ to determine whether a structural change in GC-content is supported by the data.
 
 ## 📈 Results
 
-For all datasets, the posterior probability strongly favors the two-isochore model. The posterior mass concentrates almost entirely on $M_2$, indicating strong evidence of structural changes in GC-content along the sequences.
+For all datasets, there is strong evidence in favor of the two-isochore model. In each case, we obtain $P(M_2 \mid x)\approx 1$ and $P(M_1 \mid x) \approx 0$.
 
 ### 1st Dataset
 
