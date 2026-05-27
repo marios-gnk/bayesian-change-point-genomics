@@ -1,4 +1,4 @@
-# Bayesian Change-Point Detection in Genomic GC-Content (R)
+# Bayesian Change-Point Detection in DNA Sequences (R)
 
 This repository contains an academic project completed as part of the course **Bayesian Statistics**.
 
