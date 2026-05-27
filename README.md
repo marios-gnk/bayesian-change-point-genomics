@@ -106,67 +106,51 @@ For all datasets, there is strong evidence in favor of the two-isochore model. I
 
 ### 1st Dataset
 
+- Most probable change-point: 80
+
 ![](figures/dataset1_sequence.png)
 
-Based on the posterior distribution, the most probable change point occurs at the 80th window.
-
 ![](figures/dataset1_changepoint_posterior.png)
-
-From the 81st window onward (highlighted in red), GC-content fluctuates around lower values. This pattern is also reflected in the corresponding boxplot shown below.
 
 ![](figures/dataset1_boxplot.png)
 
 ### 2nd Dataset
 
+- Most probable change-point: 37
+
 ![](figures/dataset2_sequence.png)
 
-The dataset exhibits a sharp and persistent decrease in GC-content beyond a specific point, supporting the hypothesis of two distinct isochores. The most probable change point occurs at the 37th window.
-
 ![](figures/dataset2_changepoint_posterior.png)
-
-The boxplot below illustrates the distribution of GC-content values per window for each isochore, highlighting the difference between the two regions.
 
 ![](figures/dataset2_boxplot.png)
 
 ### 3rd Dataset
 
+- Most probable change-point: 13
+
 ![](figures/dataset3_sequence.png)
 
-The third dataset appears to contain an initial region in which GC-content fluctuates around lower values, while the subsequent region exhibits a noticeable increase in GC-content.
-
-The most probable change point occurs at the 13th window.
-
 ![](figures/dataset3_changepoint_posterior.png)
-
-The corresponding boxplot further illustrates the difference between the two inferred regions.
 
 ![](figures/dataset3_boxplot.png)
 
 ### 4th Dataset
 
+- Most probable change-point: 16
+
 ![](figures/dataset4_sequence.png)
 
-In this dataset, the initial windows appear to belong to a region characterized by increased GC-content, whereas the subsequent region exhibits substantially lower values.
-
-The most probable change point occurs at the 16th window.
-
 ![](figures/dataset4_changepoint_posterior.png)
-
-The boxplot below highlights the contrast between the two inferred regions.
 
 ![](figures/dataset4_boxplot.png)
 
 ### 5th Dataset
 
+- Most probable change-point: 71
+
 ![](figures/dataset5_sequence.png)
 
-In the fifth dataset, the final windows appear to belong to a different genomic region. More specifically, from the 72nd window onward, a sharp increase in GC-content is observed.
-
-The most probable change point occurs at the 71st window.
-
 ![](figures/dataset5_changepoint_posterior.png)
-
-The boxplot below illustrates the difference between the two inferred regions.
 
 ![](figures/dataset5_boxplot.png)
 
