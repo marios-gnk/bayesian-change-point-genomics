@@ -13,7 +13,7 @@ Isochores are regions of a chromosome in which GC-content is approximately const
 The `data` folder contains 5 datasets, each consisting of 100 consecutive observations of G/C counts across genomic windows of length 5000.
 
 The goal is to determine whether each dataset originates from:
-- a single homogeneous isochore, or  
+- a single isochore, or  
 - two distinct isochores separated by a structural change in GC-content.
 
 ---
