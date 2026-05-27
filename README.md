@@ -102,7 +102,7 @@ to determine whether a structural change in GC-content is supported by the data.
 
 ## 📈 Results
 
-For all datasets, there is strong evidence in favor of the two-isochore model. In each case, we obtain $P(M_2 \mid x)\approx 1$ and $P(M_1 \mid x) \approx 0$.
+Posterior inference strongly favors the two-isochore model across all datasets, with \( P(M_2 \mid x) \approx 1 \).
 
 ### 1st Dataset
 
