@@ -102,7 +102,7 @@ to determine whether a structural change in GC-content is supported by the data.
 
 ## 📈 Results
 
-Posterior inference strongly favors the two-isochore model across all datasets, with \( P(M_2 \mid x) \approx 1 \).
+Posterior inference strongly favors the two-isochore model across all datasets, with $\( P(M_2 \mid x) \approx 1 \)$.
 
 ### 1st Dataset
 
