@@ -10,7 +10,7 @@ GC-content refers to the proportion of nucleotides in a DNA sequence that are ei
 
 Isochores are regions of a chromosome in which GC-content is approximately constant.
 
-The `data` folder contains 5 datasets, each consisting of 100 consecutive observations of G/C counts across genomic windows of length 5000.
+The `data` folder contains 4 datasets, each consisting of 100 consecutive observations of G/C counts across genomic windows of length 5000.
 
 The goal is to determine whether each dataset originates from:
 - a single isochore, or  
@@ -106,7 +106,7 @@ Posterior inference strongly favors the two-isochore model across all datasets, 
 
 ### 1st Dataset
 
-- Most probable change-point: 80
+- Most probable change-point: 37
 
 ![](figures/dataset1_sequence.png)
 
@@ -116,7 +116,7 @@ Posterior inference strongly favors the two-isochore model across all datasets, 
 
 ### 2nd Dataset
 
-- Most probable change-point: 37
+- Most probable change-point: 13
 
 ![](figures/dataset2_sequence.png)
 
@@ -126,7 +126,7 @@ Posterior inference strongly favors the two-isochore model across all datasets, 
 
 ### 3rd Dataset
 
-- Most probable change-point: 13
+- Most probable change-point: 16
 
 ![](figures/dataset3_sequence.png)
 
@@ -136,23 +136,13 @@ Posterior inference strongly favors the two-isochore model across all datasets, 
 
 ### 4th Dataset
 
-- Most probable change-point: 16
+- Most probable change-point: 71
 
 ![](figures/dataset4_sequence.png)
 
 ![](figures/dataset4_changepoint_posterior.png)
 
 ![](figures/dataset4_boxplot.png)
-
-### 5th Dataset
-
-- Most probable change-point: 71
-
-![](figures/dataset5_sequence.png)
-
-![](figures/dataset5_changepoint_posterior.png)
-
-![](figures/dataset5_boxplot.png)
 
 ---
 
