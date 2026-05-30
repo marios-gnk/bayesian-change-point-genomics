@@ -108,41 +108,41 @@ Posterior inference strongly favors the two-isochore model across all datasets, 
 
 - Most probable change-point: 37
 
-![](figures/dataset1_sequence.png)
+<img src="figures/dataset1_sequence.png" width="500">
 
-![](figures/dataset1_changepoint_posterior.png)
+<img src="figures/dataset1_changepoint_posterior.png" width="500">
 
-![](figures/dataset1_boxplot.png)
+<img src="figures/dataset1_boxplot.png" width="500">
 
 ### 2nd Dataset
 
 - Most probable change-point: 13
 
-![](figures/dataset2_sequence.png)
+<img src="figures/dataset2_sequence.png" width="500">
 
-![](figures/dataset2_changepoint_posterior.png)
+<img src="figures/dataset2_changepoint_posterior.png" width="500">
 
-![](figures/dataset2_boxplot.png)
+<img src="figures/dataset2_boxplot.png" width="500">
 
 ### 3rd Dataset
 
 - Most probable change-point: 16
 
-![](figures/dataset3_sequence.png)
+<img src="figures/dataset3_sequence.png" width="500">
 
-![](figures/dataset3_changepoint_posterior.png)
+<img src="figures/dataset3_changepoint_posterior.png" width="500">
 
-![](figures/dataset3_boxplot.png)
+<img src="figures/dataset3_boxplot.png" width="500">
 
 ### 4th Dataset
 
 - Most probable change-point: 71
 
-![](figures/dataset4_sequence.png)
+<img src="figures/dataset4_sequence.png" width="500">
 
-![](figures/dataset4_changepoint_posterior.png)
+<img src="figures/dataset4_changepoint_posterior.png" width="500">
 
-![](figures/dataset4_boxplot.png)
+<img src="figures/dataset4_boxplot.png" width="500">
 
 ---
 
